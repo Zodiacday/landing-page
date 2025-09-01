@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d1117 100%);
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -33,7 +33,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 212, 255, 0.3);
             border-radius: 50%;
             animation: float 20s infinite ease-in-out;
         }
@@ -50,9 +50,9 @@
             top: 0;
             width: 100%;
             padding: 20px 50px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(10, 10, 10, 0.9);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(75, 85, 99, 0.3);
             z-index: 1000;
             transition: all 0.3s ease;
         }
@@ -70,7 +70,7 @@
             font-weight: 800;
             color: white;
             text-decoration: none;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            background: linear-gradient(45deg, #00d4ff, #00ff88);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -91,7 +91,7 @@
         }
 
         .nav-links a:hover {
-            color: white;
+            color: #00d4ff;
             transform: translateY(-2px);
         }
 
@@ -102,7 +102,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            background: linear-gradient(45deg, #00d4ff, #00ff88);
             transition: width 0.3s ease;
         }
 
@@ -127,12 +127,12 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(1.5rem, 4vw, 3rem);
             font-weight: 900;
             color: white;
             margin-bottom: 20px;
             line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff, #e3e3e3);
+            background: linear-gradient(135deg, #ffffff, #a1a1aa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -140,7 +140,7 @@
 
         .hero p {
             font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 40px;
             line-height: 1.6;
         }
@@ -166,25 +166,31 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #ff6b6b, #feca57, #48cae4);
-            color: white;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(135deg, #00d4ff, #00ff88, #22d3ee);
+            color: #0a0a0a;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(26, 26, 26, 0.8);
             color: white;
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(75, 85, 99, 0.4);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
         }
 
         .btn-primary:hover {
-            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.6);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(26, 26, 26, 0.9);
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
         }
 
         /* Features Section */
@@ -200,7 +206,7 @@
             font-weight: 800;
             color: white;
             margin-bottom: 80px;
-            background: linear-gradient(135deg, #ffffff, #e3e3e3);
+            background: linear-gradient(135deg, #ffffff, #a1a1aa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -213,11 +219,11 @@
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(26, 26, 26, 0.6);
             border-radius: 20px;
             padding: 40px;
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(75, 85, 99, 0.3);
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             overflow: hidden;
@@ -225,8 +231,9 @@
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.4);
+            background: rgba(26, 26, 26, 0.8);
         }
 
         .feature-card::before {
@@ -236,7 +243,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #ff6b6b, #feca57, #48cae4);
+            background: linear-gradient(90deg, #00d4ff, #00ff88, #22d3ee);
         }
 
         .feature-icon {
@@ -253,7 +260,7 @@
         }
 
         .feature-card p {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.6;
             font-size: 1rem;
         }
@@ -271,7 +278,7 @@
             font-weight: 800;
             color: white;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff, #e3e3e3);
+            background: linear-gradient(135deg, #ffffff, #a1a1aa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -279,7 +286,7 @@
 
         .demo p {
             font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 60px;
             max-width: 600px;
             margin-left: auto;
@@ -321,21 +328,23 @@
             margin-bottom: 8px;
         }
 
-        .demo-title {
+        .demo-popup .demo-title {
             margin: 0;
             font-weight: 500;
-            font-size: 16px;
-            color: #000000;
+            font-size: 17px !important;
+            color: #000000 !important;
             letter-spacing: -0.01em;
+            backdrop-filter: none;
+            position: relative;
+            z-index: 10;
+            background: none !important;
+            -webkit-background-clip: unset !important;
+            -webkit-text-fill-color: #000000 !important;
+            background-clip: unset !important;
         }
 
         .demo-popup.dark .demo-title {
             color: #F7FAFC;
-        }
-
-        .demo-popup .demo-title {
-            color: #000000 !important;
-            font-size: 20px !important;
         }
 
         .tagline {
@@ -772,7 +781,7 @@
             font-weight: 800;
             color: white;
             margin-bottom: 80px;
-            background: linear-gradient(135deg, #ffffff, #e3e3e3);
+            background: linear-gradient(135deg, #ffffff, #a1a1aa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -787,17 +796,18 @@
         .value-card {
             text-align: center;
             padding: 60px 40px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(26, 26, 26, 0.4);
             border-radius: 20px;
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(75, 85, 99, 0.2);
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .value-card:hover {
             transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(26, 26, 26, 0.7);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
         }
 
         .value-icon {
@@ -814,7 +824,7 @@
         }
 
         .value-card p {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.6;
             font-size: 1.1rem;
         }
@@ -832,7 +842,7 @@
             font-weight: 800;
             color: white;
             margin-bottom: 30px;
-            background: linear-gradient(135deg, #ffffff, #e3e3e3);
+            background: linear-gradient(135deg, #ffffff, #a1a1aa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -840,17 +850,17 @@
 
         .cta p {
             font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 50px;
             line-height: 1.6;
         }
 
         /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(10, 10, 10, 0.8);
             backdrop-filter: blur(20px);
             padding: 60px 50px 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(75, 85, 99, 0.3);
         }
 
         .footer-content {
@@ -877,7 +887,7 @@
         }
 
         .footer-section a:hover {
-            color: white;
+            color: #00d4ff;
         }
 
         .footer-links {
@@ -893,7 +903,7 @@
             text-align: center;
             margin-top: 40px;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(75, 85, 99, 0.3);
             color: rgba(255, 255, 255, 0.6);
         }
 
@@ -906,6 +916,19 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes celebrateTask {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.05); box-shadow: 0 8px 24px rgba(74, 124, 89, 0.3); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
             }
         }
 
@@ -925,20 +948,17 @@
                 min-height: 90vh;
             }
 
-            .features,
             .demo,
             .values,
             .cta {
                 padding: 80px 20px;
             }
 
-            .features-grid,
             .values-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
 
-            .feature-card,
             .value-card {
                 padding: 30px 20px;
             }
@@ -995,21 +1015,20 @@
         .btn:focus,
         .demo-input:focus,
         .demo-checkbox:focus {
-            outline: 2px solid #feca57;
+            outline: 2px solid #00d4ff;
             outline-offset: 2px;
         }
 
         .nav-links a:focus {
-            outline: 2px solid #feca57;
+            outline: 2px solid #00d4ff;
             outline-offset: 4px;
             border-radius: 4px;
         }
 
         /* High contrast mode support */
         @media (prefers-contrast: high) {
-            .feature-card,
             .value-card {
-                border: 2px solid rgba(255, 255, 255, 0.3);
+                border: 2px solid rgba(0, 212, 255, 0.5);
             }
 
             .btn {
@@ -1037,7 +1056,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 style="font-size: clamp(1.5rem, 4vw, 3rem);">Your To-Do List, One Click Away Extension</h1>
+            <h1>Your To-Do List, One Click Away Extension</h1>
             <p>Manage tasks instantly from your browser — simple, fast, and always within reach</p>
             <div class="cta-buttons">
                 <a href="#" class="btn btn-primary">Add to Chrome - Free</a>
@@ -1045,7 +1064,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Demo Section -->
     <section class="demo" id="demo">
@@ -1060,7 +1078,6 @@
                         <button class="demo-btn" id="demoDarkMode">🌙</button>
                     </div>
                 </div>
-                
                 
                 <div class="demo-progress" id="demoProgressContainer">
                     <div class="demo-progress-bar">
@@ -1173,35 +1190,12 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Donezo</h3>
-                <p>The simplest way to stay organized and productive while browsing the web.</p>
+                <h3>Donezo – To-Do List in One Click</h3>
+                <p>Forget Notion, Docs, and sticky notes. Donezo keeps your tasks where they belong — in your browser extension. Fast to capture, easy to organize, satisfying to complete.</p>
             </div>
             <div class="footer-section">
-                <h3>Product</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Chrome Store</a></li>
-                    <li><a href="#">Roadmap</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Support</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Bug Reports</a></li>
-                    <li><a href="#">Feature Requests</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Company</h3>
-                <ul class="footer-links">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                </ul>
+                <h3>Contact</h3>
+                <p>asteriuselos@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1225,9 +1219,9 @@
             }
         }
 
-        // Demo functionality - Updated to match real extension
+        // Demo functionality
         let completedTasks = 3;
-        const totalTasks = 5;
+        let totalTasks = 5;
         
         function updateDemoProgress() {
             const percentage = (completedTasks / totalTasks) * 100;
@@ -1235,20 +1229,18 @@
             document.getElementById('demoProgressLabel').textContent = `${completedTasks} of ${totalTasks} tasks completed`;
         }
         
-        // Interactive demo tasks - Updated for real design
+        // Interactive demo tasks
         document.addEventListener('click', function(e) {
             // Handle task completion
             if (e.target.classList.contains('demo-checkbox') && !e.target.checked) {
                 const task = e.target.closest('.demo-task');
                 const checkbox = e.target;
                 
-                // Add completion animation
                 task.style.animation = 'celebrateTask 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
                 
                 setTimeout(() => {
                     task.classList.add('completed');
                     checkbox.checked = true;
-                    checkbox.classList.add('checked');
                     completedTasks++;
                     updateDemoProgress();
                     task.style.animation = '';
@@ -1264,6 +1256,7 @@
                 task.style.opacity = '0';
                 setTimeout(() => {
                     if (wasCompleted) completedTasks--;
+                    totalTasks--;
                     task.remove();
                     updateDemoProgress();
                 }, 300);
@@ -1277,7 +1270,7 @@
             }
         });
         
-        // Add new task demo - Updated for real design
+        // Add new task demo
         document.getElementById('demoTaskInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter' && this.value.trim()) {
                 const newTask = document.createElement('li');
@@ -1287,13 +1280,14 @@
                         <input type="checkbox" class="demo-checkbox">
                         <span class="demo-task-text">${this.value}</span>
                     </div>
-                    <button class="delete-btn">Delete</button>
+                    <button class="delete-btn">×</button>
                 `;
                 
-                // Add slide in animation
                 newTask.style.animation = 'slideInTask 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
                 
                 document.getElementById('demoTaskList').appendChild(newTask);
+                totalTasks++;
+                updateDemoProgress();
                 this.value = '';
             }
         });
@@ -1302,37 +1296,10 @@
         document.getElementById('demoAddBtn').addEventListener('click', function() {
             const input = document.getElementById('demoTaskInput');
             if (input.value.trim()) {
-                // Trigger the same logic as Enter key
                 input.dispatchEvent(new KeyboardEvent('keypress', { key: 'Enter' }));
             }
         });
 
-        // Add celebration animation for task completion
-        const celebrationStyle = document.createElement('style');
-        celebrationStyle.textContent = `
-            @keyframes celebrateTask {
-                0% { transform: scale(1); }
-                30% { transform: scale(1.05); box-shadow: 0 8px 24px rgba(74, 124, 89, 0.3); }
-                100% { transform: scale(1); }
-            }
-            
-            @keyframes slideInTask {
-                from {
-                    opacity: 0;
-                    transform: translateY(-20px) scale(0.95);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0) scale(1);
-                }
-            }
-        `;
-        document.head.appendChild(celebrationStyle);
-
-        // Initialize demo progress
-        updateDemoProgress();
-
-        // Animated counter for stats (removed stats section)
         // Feature cards intersection observer
         const observerOptions = {
             threshold: 0.1,
@@ -1347,13 +1314,6 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            observer.observe(card);
-        });
-
-        // Apply same observer to value cards
         document.querySelectorAll('.value-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
@@ -1383,20 +1343,11 @@
             });
         });
 
-        // Add ripple animation CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Initialize particles when page loads
-        window.addEventListener('load', createParticles);
+        // Initialize particles and demo
+        window.addEventListener('load', () => {
+            createParticles();
+            updateDemoProgress();
+        });
     </script>
 </body>
 </html>
