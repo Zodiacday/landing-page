@@ -859,3 +859,511 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        .privacy-card {
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(75, 85, 99, 0.3);
+            line-height: 1.6;
+        }
+
+        .privacy-card h3 {
+            color: #00d4ff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .privacy-card h4 {
+            color: #00ff88;
+            font-size: 1.3rem;
+            margin: 30px 0 15px 0;
+        }
+
+        .privacy-card h5 {
+            color: white;
+            font-size: 1.1rem;
+            margin: 20px 0 10px 0;
+        }
+
+        .privacy-card p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .privacy-card ul {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .privacy-card a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes celebrateTask {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.05); box-shadow: 0 8px 24px rgba(74, 124, 89, 0.3); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 0 20px;
+                min-height: 90vh;
+            }
+
+            .demo,
+            .values,
+            .cta {
+                padding: 80px 20px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .value-card {
+                padding: 30px 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+
+            footer {
+                padding: 40px 20px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .demo-popup {
+                width: 95vw;
+                margin: 0 10px;
+            }
+
+            .privacy-content {
+                padding: 40px 20px;
+            }
+
+            .privacy-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background -->
+    <div class="bg-animation" id="bgAnimation"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a onclick="showMainPage()" class="logo">Donezo</a>
+            <ul class="nav-links">
+                <li><a href="#demo" onclick="goToSection('demo')">Demo</a></li>
+                <li><a href="#values" onclick="goToSection('values')">Why Donezo</a></li>
+                <li><a href="#install" onclick="goToSection('install')">Install</a></li>
+                <li><a href="#privacy" onclick="showPrivacyPage()">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Page Container -->
+    <div id="mainPage">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Your To-Do List, One Click Away Extension</h1>
+                <p>Manage tasks instantly from your browser — simple, fast, and always within reach</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Add to Chrome - Free</a>
+                    <a href="#demo" onclick="goToSection('demo')" class="btn btn-secondary">Try Demo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section class="demo" id="demo">
+            <h2>See Donezo in Action</h2>
+            <p>Experience the simplicity and power of Donezo with our interactive demo. Try adding tasks, marking them complete, and exploring the features.</p>
+            
+            <div class="demo-popup" id="demoPopup">
+                <div class="demo-content">
+                    <div class="demo-header">
+                        <h2 class="demo-title">Donezo</h2>
+                        <div class="demo-controls">
+                            <button class="demo-btn" id="demoDarkMode">🌙</button>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-progress" id="demoProgressContainer">
+                        <div class="demo-progress-bar">
+                            <div class="demo-progress-fill" id="demoProgressBar"></div>
+                        </div>
+                        <div class="demo-progress-label" id="demoProgressLabel">3 of 5 tasks completed</div>
+                    </div>
+                    
+                    <div class="demo-input-section">
+                        <div class="demo-input-container">
+                            <input type="text" class="demo-input" id="demoTaskInput" placeholder="Add a new task..." maxlength="100">
+                            <button class="demo-add-btn" id="demoAddBtn">+</button>
+                        </div>
+                    </div>
+                    
+                    <ul class="demo-task-list" id="demoTaskList">
+                        <li class="demo-task completed">
+                            <div class="task-left">
+                                <input type="checkbox" class="demo-checkbox" checked>
+                                <span class="demo-task-text">Review project proposal</span>
+                            </div>
+                            <button class="delete-btn">×</button>
+                        </li>
+                        <li class="demo-task completed">
+                            <div class="task-left">
+                                <input type="checkbox" class="demo-checkbox" checked>
+                                <span class="demo-task-text">Call client about meeting</span>
+                            </div>
+                            <button class="delete-btn">×</button>
+                        </li>
+                        <li class="demo-task completed">
+                            <div class="task-left">
+                                <input type="checkbox" class="demo-checkbox" checked>
+                                <span class="demo-task-text">Update portfolio website</span>
+                            </div>
+                            <button class="delete-btn">×</button>
+                        </li>
+                        <li class="demo-task">
+                            <div class="task-left">
+                                <input type="checkbox" class="demo-checkbox">
+                                <span class="demo-task-text">Prepare presentation slides</span>
+                            </div>
+                            <button class="delete-btn">×</button>
+                        </li>
+                        <li class="demo-task">
+                            <div class="task-left">
+                                <input type="checkbox" class="demo-checkbox">
+                                <span class="demo-task-text">Schedule team meeting</span>
+                            </div>
+                            <button class="delete-btn">×</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values" id="values">
+            <h2>Values Donezo Can Bring to Your Life</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <span class="value-icon">⚡</span>
+                    <h3>Save Time</h3>
+                    <p>Stop juggling Notion, Google Docs, or sticky notes — your tasks live one click away in your browser.</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">📝</span>
+                    <h3>Frictionless Task Capture</h3>
+                    <p>No extra apps or windows. Donezo is always there, right where you work.</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">📂</span>
+                    <h3>Stay Organized</h3>
+                    <p>Inline editing and drag-and-drop keep your list neat and in the right order.</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">🧘</span>
+                    <h3>Mindful Productivity</h3>
+                    <p>A simple, clutter-free design that avoids the overwhelm of bloated productivity tools.</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">🎯</span>
+                    <h3>Visual Motivation</h3>
+                    <p>Progress bar and subtle animations make checking things off feel rewarding.</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">🔄</span>
+                    <h3>Control & Flexibility</h3>
+                    <p>Undo mistakes, edit instantly, and reorder tasks however you like.</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">🌙</span>
+                    <h3>Consistency & Focus</h3>
+                    <p>Dark mode and sync storage keep your to-dos accessible, comfortable, and always in rhythm with your workflow.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta" id="install">
+            <h2>Ready to Get Organized?</h2>
+            <p>Join thousands of users who have transformed their productivity with Donezo. Install now and start your journey to better task management.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Add to Chrome - Free</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Privacy Policy Page -->
+    <div id="privacyPage" style="display: none; padding-top: 120px;">
+        <div class="privacy-content">
+            <div class="privacy-header">
+                <button class="back-btn" onclick="showMainPage()">← Back to Home</button>
+                <h2 class="privacy-title">Privacy Policy</h2>
+            </div>
+            
+            <div class="privacy-card">
+                <h3>Donezo Privacy Policy</h3>
+                <p style="font-style: italic;">Last updated: December 2024</p>
+                
+                <p>Donezo ("the Extension") respects your privacy. This policy explains what data we collect, how we use it, and your choices.</p>
+                
+                <h4>1. Data We Collect</h4>
+                <h5>Currently (Free Version)</h5>
+                <ul>
+                    <li>Task data & preferences (such as your to-do list, dark mode setting, and progress).</li>
+                    <li>Stored locally in your browser using Chrome's storage API.</li>
+                    <li>Synced to your Google account only if you have Chrome Sync enabled.</li>
+                    <li>No personal data (such as your name, email, or payment information) is collected at this time.</li>
+                </ul>
+                
+                <h5>Future (Premium Features)</h5>
+                <ul>
+                    <li>Email address (to create and manage accounts).</li>
+                    <li>Payment information (processed securely through a third-party provider such as Stripe or Google Payments, never stored by us).</li>
+                    <li>If these features launch, this policy will be updated before collection begins.</li>
+                </ul>
+                
+                <h4>2. How We Use Data</h4>
+                <ul>
+                    <li>To store and sync your tasks and preferences.</li>
+                    <li>To provide core extension functionality.</li>
+                    <li>[Future] To manage premium subscriptions and deliver paid features.</li>
+                </ul>
+                
+                <p style="font-weight: 500;">We do not:</p>
+                <ul>
+                    <li>Sell or rent your data.</li>
+                    <li>Use your data for advertising.</li>
+                    <li>Share your data with third parties except as required for payments (Stripe/Google Payments) or by law.</li>
+                </ul>
+                
+                <h4>3. Data Storage & Security</h4>
+                <ul>
+                    <li>All free version data is stored locally in Chrome storage.</li>
+                    <li>Premium data (when available) will be stored securely in encrypted databases.</li>
+                    <li>We take reasonable measures to protect your information, but no system is 100% secure.</li>
+                </ul>
+                
+                <h4>4. Your Choices</h4>
+                <ul>
+                    <li>You can delete your tasks and preferences anytime within the extension.</li>
+                    <li>You can uninstall Donezo to remove all locally stored data.</li>
+                    <li>[Future] You may request deletion of your account and subscription data.</li>
+                </ul>
+                
+                <h4>5. Changes</h4>
+                <p>We may update this Privacy Policy as Donezo evolves. If significant changes are made, we will notify users through the extension or our website.</p>
+                
+                <h4>6. Contact</h4>
+                <p>If you have questions or concerns about this Privacy Policy, contact us at:<br>
+                <a href="mailto:asteriuselos@gmail.com">asteriuselos@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Donezo – To-Do List in One Click</h3>
+                <p>Forget Notion, Docs, and sticky notes. Donezo keeps your tasks where they belong — in your browser extension. Fast to capture, easy to organize, satisfying to complete.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>asteriuselos@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Donezo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animated background particles
+        function createParticles() {
+            const container = document.getElementById('bgAnimation');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Demo functionality
+        let completedTasks = 3;
+        let totalTasks = 5;
+        
+        function updateDemoProgress() {
+            const percentage = (completedTasks / totalTasks) * 100;
+            document.getElementById('demoProgressBar').style.width = percentage + '%';
+            document.getElementById('demoProgressLabel').textContent = `${completedTasks} of ${totalTasks} tasks completed`;
+        }
+        
+        // Interactive demo tasks
+        document.addEventListener('click', function(e) {
+            // Handle task completion
+            if (e.target.classList.contains('demo-checkbox') && !e.target.checked) {
+                const task = e.target.closest('.demo-task');
+                const checkbox = e.target;
+                
+                task.style.animation = 'celebrateTask 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                
+                setTimeout(() => {
+                    task.classList.add('completed');
+                    checkbox.checked = true;
+                    completedTasks++;
+                    updateDemoProgress();
+                    task.style.animation = '';
+                }, 300);
+            }
+            
+            // Handle delete buttons
+            if (e.target.classList.contains('delete-btn')) {
+                const task = e.target.closest('.demo-task');
+                const wasCompleted = task.classList.contains('completed');
+                
+                task.style.transform = 'translateX(-100%)';
+                task.style.opacity = '0';
+                setTimeout(() => {
+                    if (wasCompleted) completedTasks--;
+                    totalTasks--;
+                    task.remove();
+                    updateDemoProgress();
+                }, 300);
+            }
+            
+            // Handle dark mode toggle
+            if (e.target.id === 'demoDarkMode') {
+                const popup = document.getElementById('demoPopup');
+                popup.classList.toggle('dark');
+                e.target.textContent = popup.classList.contains('dark') ? '☀️' : '🌙';
+            }
+        });
+        
+        // Add new task demo
+        document.getElementById('demoTaskInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && this.value.trim()) {
+                const newTask = document.createElement('li');
+                newTask.className = 'demo-task';
+                newTask.innerHTML = `
+                    <div class="task-left">
+                        <input type="checkbox" class="demo-checkbox">
+                        <span class="demo-task-text">${this.value}</span>
+                    </div>
+                    <button class="delete-btn">×</button>
+                `;
+                
+                newTask.style.animation = 'slideInTask 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                
+                document.getElementById('demoTaskList').appendChild(newTask);
+                totalTasks++;
+                updateDemoProgress();
+                this.value = '';
+            }
+        });
+        
+        // Add button click handler
+        document.getElementById('demoAddBtn').addEventListener('click', function() {
+            const input = document.getElementById('demoTaskInput');
+            if (input.value.trim()) {
+                input.dispatchEvent(new KeyboardEvent('keypress', { key: 'Enter' }));
+            }
+        });
+
+        // Page switching functions
+        function showPrivacyPage() {
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('privacyPage').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function showMainPage() {
+            document.getElementById('mainPage').style.display = 'block';
+            document.getElementById('privacyPage').style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+
+        function goToSection(sectionId) {
+            // First ensure we're on the main page
+            if (document.getElementById('privacyPage').style.display !== 'none') {
+                showMainPage();
+                setTimeout(() => {
+                    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            } else {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Initialize particles and demo
+        window.addEventListener('load', () => {
+            createParticles();
+            updateDemoProgress();
+        });
+    </script>
+</body>
+</html>
